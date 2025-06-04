@@ -21,9 +21,11 @@ const illustration = {
 
 const greeting = {
   username: "Romain Bourrée",
-  title: "Software Engineer 10 ans d'expérience",
+  title: "Typescript & NodeJS Software Engineer",
   subTitle: emoji(
-    "Un passionné de développement backend et d'architecture logicielle. J'aime créer des solutions innovantes pour améliorer l'expérience utilisateur et optimiser les performances des applications."
+    `10 ans à décortiquer la complexité pour bâtir du logiciel propre, scalable et maintenable.
+    DDD, CQRS, architecture hexagonale : je transforme les specs métiers en code qui respire.
+    Un seul moteur : le plaisir du beau code et des systèmes bien pensés.`
   ),
   resumeLink: "", // Set to empty to hide the button
   displayGreeting: true // Set false to hide this section, defaults to true
@@ -35,9 +37,9 @@ const socialMediaLinks = {
   github: "https://github.com/Rbourree",
   linkedin: "https://www.linkedin.com/in/romain-bourree/",
   gmail: "romain.bourree@gmail.com",
+  medium: "https://medium.com/@romain.bourree",
   // gitlab: "https://gitlab.com/saadpasta",
   // facebook: "https://www.facebook.com/saad.pasta7",
-  medium: "https://medium.com/@romain.bourree",
   // stackoverflow: "https://stackoverflow.com/users/10422806/saad-pasta",
   // Instagram, Twitter and Kaggle are also supported in the links!
   // To customize icons and social links, tweak src/components/SocialMedia
@@ -47,69 +49,62 @@ const socialMediaLinks = {
 // Skills Section
 
 const skillsSection = {
-  title: "Mes skills",
-  subTitle: "CRAZY FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK",
+  title: "Mes hard skills",
+  subTitle: "Livrer des systèmes durables, évolutifs et compréhensibles par tous.",
   skills: [
-    emoji("⚡ Develop highly interactive Front end / User Interfaces for your web and mobile applications"),
-    emoji("⚡ Progressive Web Applications ( PWA ) in normal and SPA Stacks"),
-    emoji("⚡ Integration of third party services such as Firebase/ AWS / Digital Ocean")
+    emoji("⚙️ NestJS & TypeScript pour un backend expressif et solide"),
+    emoji("📐 Clean Architecture & DDD pour structurer le code autour du métier"),
+    emoji("🔁  CQRS & Event Sourcing pour gérer la complexité avec élégance"),
+    emoji("🧪 TDD & CI/CD pour livrer en confiance")
   ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
 https://fontawesome.com/icons?d=gallery */
 
   softwareSkills: [
-    // {
-    //   skillName: "html-5",
-    //   fontAwesomeClassname: "code"
-    // },
-    // {
-    //   skillName: "css3",
-    //   fontAwesomeClassname: "fab fa-css3-alt"
-    // }, 
-    // {
-    //   skillName: "sass",
-    //   fontAwesomeClassname: "fab fa-sass"
-    // },
+    {
+      skillName: "Typescript",
+      fontAwesomeClassname: "fab fa-connectdevelop"
+    },
     {
       skillName: "JavaScript",
       fontAwesomeClassname: "fab fa-js"
     },
-    // {
-    //   skillName: "reactjs",
-    //   fontAwesomeClassname: "fab fa-react"
-    // },
     {
       skillName: "nodejs",
       fontAwesomeClassname: "fab fa-node"
     },
-    // {
-    //   skillName: "swift",
-    //   fontAwesomeClassname: "fab fa-swift"
-    // },
     {
-      skillName: "npm",
+      skillName: "NestJS",
+      fontAwesomeClassname: "fab fa-dev"
+    },
+    {
+      skillName: "NPM",
       fontAwesomeClassname: "fab fa-npm"
     },
     {
-      skillName: "sql-database",
+      skillName: "Git",
+      fontAwesomeClassname: "fab fa-git"
+    },
+    {
+      skillName: "No SQL",
       fontAwesomeClassname: "fas fa-database"
     },
-    // {
-    //   skillName: "aws",
-    //   fontAwesomeClassname: "fab fa-aws"
-    // },
-    // {
-    //   skillName: "firebase",
-    //   fontAwesomeClassname: "fas fa-fire"
-    // },
-    // {
-    //   skillName: "python",
-    //   fontAwesomeClassname: "fab fa-python"
-    // },
+    {
+      skillName: "SQL",
+      fontAwesomeClassname: "fas fa-database"
+    },
     {
       skillName: "docker",
       fontAwesomeClassname: "fab fa-docker"
+    },
+    {
+      skillName: "Angular",
+      fontAwesomeClassname: "fab fa-angular"
+    },
+    {
+      skillName: "React",
+      fontAwesomeClassname: "fab fa-react"
     }
   ],
   display: true // Set false to hide this section, defaults to true
@@ -118,18 +113,18 @@ https://fontawesome.com/icons?d=gallery */
 // Education Section
 
 const educationInfo = {
-  display: true, // Set false to hide this section, defaults to true
+  display: false, // Set false to hide this section, defaults to true
   schools: [
     {
       schoolName: "Supinfo",
       logo: require("./assets/images/supinfoLogo.png"),
-      subHeader: "Master of Science in Computer Science",
-      duration: "September 2017 - April 2019",
-      desc: "Participated in the research of XXX and published 3 papers.",
-      descBullets: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-      ]
+      subHeader: "Licence",
+      duration: "2012 - 2015",
+      desc: "Supinfo est une école d'ingénieurs en informatique. J'ai suivi un cursus de 3 ans avec des stages en entreprise.",
+      // descBullets: [
+      //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+      // ]
     },
     {
       schoolName: "Stanford University",
@@ -148,19 +143,19 @@ const techStack = {
   viewSkillBars: true, //Set it to true to show Proficiency Section
   experience: [
     {
-      Stack: "Typescript", //Insert stack or technology you have experience in
-      progressPercentage: "90%" //Insert relative proficiency in percentage
-    },
-    {
-      Stack: "NestJS",
+      Stack: "Communication",
       progressPercentage: "90%"
     },
     {
-      Stack: "Git & GitHub",
+      Stack: "Pédagogie",
+      progressPercentage: "90%"
+    },
+    {
+      Stack: "Prise de hauteur",
       progressPercentage: "80%"
     },
     {
-      Stack: "PostgreSQL",
+      Stack: "Leadership",
       progressPercentage: "60%"
     }
   ],
@@ -173,29 +168,51 @@ const workExperiences = {
   display: true, //Set it to true to show workExperiences Section
   experience: [
     {
-      role: "Développeur Fullstack",
-      company: "Wever",
-      companylogo: require("./assets/images/weverLogo.png"),
-      date: "June 2018 – Present",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      role: "Engineering Manager",
+      company: "MyLegitech",
+      companylogo: require("./assets/images/mylegitechLogo.jpeg"),
+      date: "02/2024 – Aujourd'hui",
+      desc: "Pilotage et accompagnement de 6 squads pour un total de 14 collaborateurs",
       descBullets: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        "Management",
+        "Représentant du service R&D au Comex",
+        "Planification et suivi des projets"
       ]
     },
     {
       role: "Lead Developer",
-      company: "Mylegitech",
+      company: "MyLegitech",
       companylogo: require("./assets/images/mylegitechLogo.jpeg"),
-      date: "May 2017 – May 2018",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      date: "04/2019 – 01/2024",
+      desc: "Responsable de l'ensemble du service de développement (8 développeurs).",
+      descBullets: [
+        "Gestion de l'équipe de développement",
+        "Mise en place des bonnes pratiques de développement",
+        "Collaboration avec les équipes produit et design",
+        "Review de code et mentorat des développeurs"
+      ]
     },
     {
       role: "Développeur fullstack freelance",
       company: "Freelance",
       companylogo: require("./assets/images/freelanceLogo.png"),
-      date: "Jan 2015 – Sep 2015",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      date: "10/2018 – 04/2019",
+      descBullets: [
+        "Interventions sur des projets Angular et NodeJS",
+        "Mise en place de serveurs OVH et de bases de données",
+      ]
+    },
+    {
+      role: "Développeur Fullstack",
+      company: "Wever",
+      companylogo: require("./assets/images/weverLogo.png"),
+      date: "04/2017 – 09/2018",
+      desc: "Développeur fullstack et devOps pour une startup de gestion de mobilité",
+      descBullets: [
+        "Administration des serveurs OVH",
+        "Mise en place de pipelines CI/CD",
+        "Développement d'applications web et mobile (Angular + NodeJS)",
+      ]
     }
   ]
 };
@@ -251,11 +268,11 @@ const achievementSection = {
 
   achievementsCards: [
     {
-      title: "Google Code-In Finalist",
+      title: "NestJS Certified Developer",
       subtitle:
-        "First Pakistani to be selected as Google Code-in Finalist from 4000 students from 77 different countries.",
-      image: require("./assets/images/codeInLogo.webp"),
-      imageAlt: "Google Code-In Logo",
+        "Completed the NestJS Certified Developer and received the certification.",
+      image: require("./assets/images/nestLogo.png"),
+      imageAlt: "NestJS Logo",
       footerLink: [
         {
           name: "Certification",
@@ -291,7 +308,7 @@ const achievementSection = {
       image: require("./assets/images/pwaLogo.webp"),
       imageAlt: "PWA Logo",
       footerLink: [
-        {name: "Certification", url: ""},
+        { name: "Certification", url: "" },
         {
           name: "Final Project",
           url: "https://pakistan-olx-1.firebaseapp.com/"
@@ -299,15 +316,15 @@ const achievementSection = {
       ]
     }
   ],
-  display: true // Set false to hide this section, defaults to true
+  display: false // Set false to hide this section, defaults to true
 };
 
 // Blogs Section
 
 const blogSection = {
-  title: "Blogs",
+  title: "Articles",
   subtitle:
-    "With Love for Developing cool stuff, I love to write and teach others what I have learnt.",
+    "Mes quelques articles écrits sur Medium.",
   displayMediumBlogs: "true", // Set true to display fetched medium blogs instead of hardcoded ones
   blogs: [
     {
@@ -370,19 +387,19 @@ const resumeSection = {
 const contactInfo = {
   title: emoji("Contact Me ☎️"),
   subtitle:
-    "Discuss a project or just want to say hi? My Inbox is open for all.",
-  number: "+92-0000000000",
-  email_address: "saadpasta70@gmail.com"
+    "Contactez-moi pour discuter de projets, collaborations ou simplement pour échanger des idées !",
+  // number: "+92-0000000000",
+  email_address: "romain.bourree@gmail.com"
 };
 
 // Twitter Section
 
 const twitterDetails = {
   userName: "twitter", //Replace "twitter" with your twitter username without @
-  display: true // Set true to display this section, defaults to false
+  display: false // Set true to display this section, defaults to false
 };
 
-const isHireable = false; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
+const isHireable = true; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
 
 export {
   illustration,
