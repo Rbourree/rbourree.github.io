@@ -50,10 +50,13 @@ const socialMediaLinks = {
 
 const skillsSection = {
   title: "Mes hard skills",
-  subTitle: "Livrer des systèmes durables, évolutifs et compréhensibles par tous.",
+  subTitle:
+    "Livrer des systèmes durables, évolutifs et compréhensibles par tous.",
   skills: [
     emoji("⚙️ NestJS & TypeScript pour un backend expressif et solide"),
-    emoji("📐 Clean Architecture & DDD pour structurer le code autour du métier"),
+    emoji(
+      "📐 Clean Architecture & DDD pour structurer le code autour du métier"
+    ),
     emoji("🔁  CQRS & Event Sourcing pour gérer la complexité avec élégance"),
     emoji("🧪 TDD & CI/CD pour livrer en confiance")
   ],
@@ -120,7 +123,7 @@ const educationInfo = {
       logo: require("./assets/images/supinfoLogo.png"),
       subHeader: "Licence",
       duration: "2012 - 2015",
-      desc: "Supinfo est une école d'ingénieurs en informatique. J'ai suivi un cursus de 3 ans avec des stages en entreprise.",
+      desc: "Supinfo est une école d'ingénieurs en informatique. J'ai suivi un cursus de 3 ans avec des stages en entreprise."
       // descBullets: [
       //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -199,7 +202,7 @@ const workExperiences = {
       date: "10/2018 – 04/2019",
       descBullets: [
         "Interventions sur des projets Angular et NodeJS",
-        "Mise en place de serveurs OVH et de bases de données",
+        "Mise en place de serveurs OVH et de bases de données"
       ]
     },
     {
@@ -211,7 +214,7 @@ const workExperiences = {
       descBullets: [
         "Administration des serveurs OVH",
         "Mise en place de pipelines CI/CD",
-        "Développement d'applications web et mobile (Angular + NodeJS)",
+        "Développement d'applications web et mobile (Angular + NodeJS)"
       ]
     }
   ]
@@ -308,7 +311,7 @@ const achievementSection = {
       image: require("./assets/images/pwaLogo.webp"),
       imageAlt: "PWA Logo",
       footerLink: [
-        { name: "Certification", url: "" },
+        {name: "Certification", url: ""},
         {
           name: "Final Project",
           url: "https://pakistan-olx-1.firebaseapp.com/"
@@ -323,8 +326,7 @@ const achievementSection = {
 
 const blogSection = {
   title: "Articles",
-  subtitle:
-    "Mes quelques articles écrits sur Medium.",
+  subtitle: "Mes quelques articles écrits sur Medium.",
   displayMediumBlogs: "true", // Set true to display fetched medium blogs instead of hardcoded ones
   blogs: [
     {
