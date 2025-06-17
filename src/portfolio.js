@@ -21,7 +21,7 @@ const illustration = {
 
 const greeting = {
   username: "Romain Bourrée",
-  title: "Typescript & NodeJS Software Engineer",
+  title: "Typescript Backend Engineer",
   subTitle: emoji(
     `10 ans à décortiquer la complexité pour bâtir du logiciel propre, scalable et maintenable.
     DDD, CQRS, architecture hexagonale : je transforme les specs métiers en code qui respire.
