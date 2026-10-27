@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Romain Bourree · Fullstack &amp; Product Engineer</title>
+<meta name="description" content="Romain Bourree, Fullstack & Product Engineer à Caen. Dix ans de TypeScript, architecture logicielle et développement piloté par des agents IA. Ouvert à un CDI, en remote ou en hybride.">
+<meta name="author" content="Romain Bourree">
+<meta name="theme-color" content="#0a0c12">
+<link rel="canonical" href="https://rbourree.github.io/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://rbourree.github.io/">
+<meta property="og:title" content="Romain Bourree · Fullstack &amp; Product Engineer">
+<meta property="og:description" content="Romain Bourree, Fullstack & Product Engineer à Caen. Dix ans de TypeScript, architecture logicielle et développement piloté par des agents IA. Ouvert à un CDI, en remote ou en hybride.">
+<meta property="og:image" content="https://rbourree.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=JetBrains+Mono:wght@400;600&family=Schibsted+Grotesk:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<script src="assets/main.js" defer></script>
+</head>
+<body>
+<div class="cursor" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="mono-logo" href="#top" aria-label="Retour en haut"><span>R</span><span>B</span></a>
+    <ul class="nav-links">
+      <li><a href="#flow">Méthode</a></li>
+      <li><a href="#workflow">IA</a></li>
+      <li><a href="#parcours">Parcours</a></li>
+      <li><a href="#archi">Archi</a></li>
+      <li><a href="#perso">Perso</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">On en parle ?</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero" aria-label="Présentation">
+    <canvas id="swarm" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <span class="status"><i class="dot"></i>Ouvert à un CDI · Remote ou hybride Caen · Dispo sous 3 mois</span>
+      <h1 class="name" aria-label="Romain Bourree">
+        <span class="row" data-split>Romain</span>
+        <span class="row" data-split>Bourree</span>
+      </h1>
+      <p class="hero-sub">Fullstack &amp; Product Engineer. Je pars d’un besoin flou et j’arrive à une feature en prod. <em>Les agents IA me font gagner du temps</em>, les tests m’évitent de partir dans le décor.</p>
+      <p class="hero-stack" aria-label="Stack principale"><span>10+ ans de TypeScript</span><span>NestJS</span><span>Angular</span><span>PostgreSQL</span><span>RabbitMQ</span><span>Microservices</span></p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#flow">Voir comment je bosse <span aria-hidden="true">↓</span></a>
+        <a class="btn" href="#contact">Me contacter</a>
+      </div>
+      <p class="hint" aria-hidden="true"><span class="desk">↖ Bouge la souris, les agents suivent. Clique pour les disperser.</span><span class="touch">Touche l’écran pour disperser les agents.</span></p>
+    </div>
+  </section>
+
+  <!-- FLOW -->
+  <section class="section flow" id="flow">
+    <div class="wrap flow-inner">
+      <div class="section-head">
+        <span class="eyebrow">Product engineering</span>
+        <h2>De « on voudrait un truc » à « c’est en prod »</h2>
+        <p>Une demande floue, sept étapes, une feature livrée. Scrolle, je m’occupe du reste.</p>
+        <span class="fiction">Exemple fictif, méthode réelle.</span>
+      </div>
+      <div class="flow-grid">
+        <ol class="flow-steps" aria-label="Étapes">
+          <li><button type="button" data-step="0">La demande</button></li>
+          <li><button type="button" data-step="1">Le grilling</button></li>
+          <li><button type="button" data-step="2">La spec</button></li>
+          <li><button type="button" data-step="3">Les tickets</button></li>
+          <li><button type="button" data-step="4">Les tests</button></li>
+          <li><button type="button" data-step="5">Le code</button></li>
+          <li><button type="button" data-step="6">En prod</button></li>
+        </ol>
+        <div>
+          <div class="flow-stage">
+            <article class="panel">
+              <div class="panel-title"><b>01</b>La demande</div>
+              <div class="msg">
+                <div class="msg-head"><span class="avatar">DP</span><b>Direction produit</b><time>lundi · 09:12</time></div>
+                <p>Les clients aimeraient envoyer un document à quelqu’un qui n’a pas de compte. Genre… un lien ? C’est rapide, non ?</p>
+              </div>
+              <div class="typing"><i></i><i></i><i></i>Romain est en train de poser des questions</div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-title"><b>02</b>Le grilling</div>
+              <dl class="qa">
+                <div><dt>Q1</dt><dd>Le lien expire quand ?<span>Après 7 jours par défaut, réglable par projet.</span></dd></div>
+                <div><dt>Q2</dt><dd>Le destinataire peut modifier le document ?<span>Non. Lecture seule, toujours.</span></dd></div>
+                <div><dt>Q3</dt><dd>Qui peut révoquer un lien ?<span>Son créateur et les admins, à tout moment.</span></dd></div>
+                <div><dt>Q4</dt><dd>On sait qui l’a ouvert ?<span>Oui, chaque ouverture est tracée.</span></dd></div>
+              </dl>
+              <span class="chip ok">✓ 14 questions · 0 ambiguïté restante</span>
+            </article>
+
+            <article class="panel">
+              <div class="panel-title"><b>03</b>La spec</div>
+              <div class="doc">
+                <h4>Spec · Liens de partage</h4>
+                <div><h5>Problème</h5>Les documents partent en pièce jointe, puis plus personne ne sait quelle version circule.</div>
+                <div><h5>Objectif</h5>Partager un document en lecture seule, en deux clics.</div>
+                <div><h5>Critères d’acceptation</h5>
+                  <ul><li>Expiration réglable par projet</li><li>Révocable à tout moment</li><li>Chaque ouverture est tracée</li></ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-title"><b>04</b>Les tickets</div>
+              <div class="kanban">
+                <div class="col"><h5>À faire</h5>
+                  <div class="card">Page publique du lien<small>bloqué par #2</small></div>
+                  <div class="card">Expiration planifiée<small>bloqué par #1</small></div>
+                </div>
+                <div class="col"><h5>En cours</h5>
+                  <div class="card">API création de lien<small>#2 · bloque #4</small></div>
+                  <div class="card">Révocation<small>#3</small></div>
+                </div>
+                <div class="col"><h5>Fait</h5>
+                  <div class="card done">Modèle de données<small>#1</small></div>
+                </div>
+              </div>
+              <span class="chip">11 tickets · dépendances explicites · découpés pour tenir en une journée</span>
+            </article>
+
+            <article class="panel" data-tests>
+              <div class="panel-title"><b>05</b>Les tests</div>
+              <ul class="tests">
+                <li><span>createLink() crée un lien en lecture seule</span></li>
+                <li><span>refuse l’accès après expiration</span></li>
+                <li><span>révoque le lien immédiatement</span></li>
+                <li><span>trace chaque ouverture</span></li>
+              </ul>
+              <div class="test-sum"><span class="f">✗ 4 failed · rouge d’abord, c’est le principe</span><span class="p">✓ 4 passed · vert, puis refactor</span></div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-title"><b>06</b>Le code</div>
+<pre class="code"><span class="k">async</span> <span class="f">createLink</span>(docId: <span class="t">DocumentId</span>, by: <span class="t">User</span>) {
+  <span class="k">const</span> doc = <span class="k">await</span> <span class="k">this</span>.documents.<span class="f">get</span>(docId);
+  <span class="k">this</span>.policy.<span class="f">assertCanShare</span>(doc, by);
+  <span class="k">const</span> link = <span class="t">ShareLink</span>.<span class="f">readOnly</span>(doc, doc.project.linkTtl);
+  <span class="k">await</span> <span class="k">this</span>.links.<span class="f">save</span>(link);
+  <span class="k">this</span>.events.<span class="f">publish</span>(<span class="k">new</span> <span class="t">LinkCreated</span>(link.id, by.id));
+}
+<span class="c">// Petit, lisible, testé.</span></pre>
+            </article>
+
+            <article class="panel">
+              <div class="panel-title"><b>07</b>En prod</div>
+              <div class="app">
+                <div class="app-bar"><i></i><i></i><i></i>Liens de partage · Projets</div>
+                <div class="app-row"><div>Devis Atelier Lumière<small>expire dans 6 jours · 3 ouvertures</small></div><button class="restore" type="button">Révoquer</button></div>
+                <div class="app-row"><div>Planning chantier v3<small>expire dans 2 jours · 0 ouverture</small></div><button class="restore" type="button">Révoquer</button></div>
+              </div>
+              <div class="shipped"><b>EN PROD</b><span>mardi 10:42 · déployé derrière un feature flag</span></div>
+            </article>
+          </div>
+          <div class="flow-progress" aria-hidden="true"><i></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKFLOW IA -->
+  <section class="section workflow" id="workflow">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Mon workflow</span>
+        <h2>Je code avec des agents. <span class="hl">Je garde le volant.</span></h2>
+        <p>Je délègue la frappe à Claude Code, pas les décisions. Les specs, les tests et la relecture restent de mon côté.</p>
+      </div>
+      <div class="wf-grid">
+        <div class="term" data-reveal>
+          <div class="term-bar"><i></i><i></i><i></i><span>~/projet · session reconstituée pour l’exemple</span></div>
+          <div class="term-body" id="term">
+            <div class="tl sh">~/projet $ claude</div>
+            <div class="tl cmd">/grill-with-docs « un lien de partage pour les documents »</div>
+            <div class="tl out">? Expiration globale ou par projet ?</div>
+            <div class="tl out">? Lecture seule ou modification ?</div>
+            <div class="tl ok">✓ 14 questions · glossaire et ADR mis à jour</div>
+            <div class="tl cmd">/to-spec</div>
+            <div class="tl ok">✓ spec publiée dans Jira, validée par le métier</div>
+            <div class="tl cmd">/to-tickets</div>
+            <div class="tl ok">✓ 11 tickets tracer-bullet · liens « blocks » posés</div>
+            <div class="tl cmd">/implement #2 API création de lien</div>
+            <div class="tl out">→ /tdd : red, green, refactor</div>
+            <div class="tl ko">✗ 3 tests rouges</div>
+            <div class="tl ok">✓ 3 tests verts · refactor</div>
+            <div class="tl cmd">/code-review</div>
+            <div class="tl ok">✓ conforme aux standards · conforme à la spec</div>
+            <div class="tl cmd">/pr</div>
+            <div class="tl sh">lint ✓  test ✓  build ✓  → MR prête à relire<span class="caret"></span></div>
+          </div>
+        </div>
+        <div class="principles">
+          <div class="principle" data-reveal>
+            <h3>Poser le cadre</h3>
+            <p>Grill, spec, tickets. L’agent ne commence jamais sans savoir exactement quoi construire.</p>
+          </div>
+          <div class="principle" data-reveal>
+            <h3>Garder la main</h3>
+            <p>TDD systématique. Les tests disent ce qui est vrai, pas l’enthousiasme de l’agent.</p>
+          </div>
+          <div class="principle" data-reveal>
+            <h3>Vérifier</h3>
+            <p>Je relis chaque diff. Lint, tests et build passent en local avant tout commit, comme en CI.</p>
+          </div>
+          <div class="skills" data-reveal>
+            <span>/grill-with-docs</span><span>/to-spec</span><span>/to-tickets</span><span>/implement</span><span>/tdd</span><span>/code-review</span><span>/diagnosing-bugs</span><span>/improve-codebase-architecture</span>
+          </div>
+        </div>
+      </div>
+      <p class="quote" data-reveal>Un agent sans cadre, c’est un stagiaire très rapide. <span>Le cadre, c’est mon boulot.</span></p>
+    </div>
+  </section>
+
+  <!-- PARCOURS -->
+  <section class="section blueprint" id="parcours">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Plan de construction · éch. 1:1</span>
+        <h2>Plus de dix ans de chantier</h2>
+        <p>Des fondations réseau jusqu’au poste de référent technique. Chaque étage ajoute des compétences, aucun n’en retire.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b><span class="count" data-to="10">10</span>+</b><span>ans de TypeScript</span></div>
+        <div class="stat"><b><span class="count" data-to="7">7</span> ans</b><span>chez Mylegitech</span></div>
+        <div class="stat"><b><span class="count" data-to="8">8</span></b><span>devs encadrés en tant que lead</span></div>
+        <div class="stat"><b><span class="count" data-to="14">14</span></b><span>personnes réparties en 6 squads</span></div>
+      </div>
+      <div class="career" id="career">
+        <div class="career-top">
+          <div class="career-chart">
+            <svg id="careerSvg" viewBox="0 0 1000 380" role="img" aria-label="Compétences cumulées de 2009 à aujourd’hui, de 1 à 29"></svg>
+          </div>
+          <ol class="stages" id="stages">
+          <li class="stage" data-from="2009" data-skills="Réseau">
+            <div class="stage-meta"><b>MOD-01</b><span>2009 → 2012</span></div>
+            <h3>Les fondations</h3><p class="stage-org">Bac Pro réseaux, technicien matériel</p><p class="stage-txt">Je démontais des PC avant de les programmer.</p>
+            <div class="stage-new"></div>
+          </li>
+          <li class="stage" data-from="2012" data-skills="Linux,PHP,SQL">
+            <div class="stage-meta"><b>MOD-02</b><span>2012 → 2015</span></div>
+            <h3>SUPINFO</h3><p class="stage-org">Études, stage PHP chez AIR COM</p><p class="stage-txt">Linux, Bash, SQL, et mes premiers outils métier en PHP.</p>
+            <div class="stage-new"></div>
+          </li>
+          <li class="stage" data-from="2014" data-skills="Entrepreneuriat,Mobile">
+            <div class="stage-meta"><b>MOD-03</b><span>2014 → 2017</span></div>
+            <h3>Projet domotique</h3><p class="stage-org">Side project · Normandie Incubation</p><p class="stage-txt">Un assistant vocal maison, quand Alexa débarquait à peine.</p>
+            <div class="stage-new"></div>
+          </li>
+          <li class="stage" data-from="2015" data-skills="AngularJS,Ionic,Symfony">
+            <div class="stage-meta"><b>MOD-04</b><span>2015 → 2017</span></div>
+            <h3>Normandie Welcome</h3><p class="stage-org">Dev fullstack et ops</p><p class="stage-txt">Sites, applis et logiciels, avec du Linux en prod.</p>
+            <div class="stage-new"></div>
+          </li>
+          <li class="stage" data-from="2017" data-skills="Microservices,Docker,CI/CD,Node.js,MongoDB">
+            <div class="stage-meta"><b>MOD-05</b><span>2017 → 2018</span></div>
+            <h3>wever</h3><p class="stage-org">Fullstack et DevOps, Côte d’Azur</p><p class="stage-txt">Responsable de l’archi en microservices.</p>
+            <div class="stage-new"></div>
+          </li>
+          <li class="stage" data-from="2018" data-skills="Angular,Relation client">
+            <div class="stage-meta"><b>MOD-06</b><span>2018 → 2019</span></div>
+            <h3>Freelance</h3><p class="stage-org">Dev web fullstack, Normandie et Paris</p><p class="stage-txt">Du front Angular au déploiement, seul face au client.</p>
+            <div class="stage-new"></div>
+          </li>
+          <li class="stage" data-from="2019" data-skills="NestJS,PostgreSQL,RabbitMQ,Code review,Mentorat">
+            <div class="stage-meta"><b>MOD-07</b><span>2019 → 2024</span></div>
+            <h3>Lead Developer · Mylegitech</h3><p class="stage-org">Toute l’équipe de dev, 8 personnes</p><p class="stage-txt">Les features les plus complexes, la review, les juniors, et la voix des devs au COMEX.</p>
+            <div class="stage-new"></div>
+          </li>
+          <li class="stage" data-from="2024" data-skills="Management,Process,React,.NET">
+            <div class="stage-meta"><b>MOD-08</b><span>2024 → 2025</span></div>
+            <h3>Engineering Manager</h3><p class="stage-org">6 squads, 14 personnes</p><p class="stage-txt">Cadrage, process, reporting. Un an pour confirmer que je préfère construire que gérer.</p>
+            <div class="stage-new"></div>
+          </li>
+          <li class="stage" data-from="2025" data-skills="Architecture,Design patterns,Agents IA,TDD">
+            <div class="stage-meta"><b>MOD-09</b><span>2025 → aujourd’hui</span></div>
+            <h3>Référent technique</h3><p class="stage-org">Fullstack engineer · Mylegitech</p><p class="stage-txt">Retour au code, par choix. Architecture, review et dev piloté par des agents IA. Prochaine étape : chez vous ?</p>
+            <div class="stage-new"></div>
+          </li>
+          </ol>
+        </div>
+        <div class="spectrum-head"><span>Compétences clés</span></div>
+        <div class="spectrum" id="spectrum"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHI -->
+  <section class="section" id="archi">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Ce qui me fait lever le matin</span>
+        <h2>L’architecture au service du produit</h2>
+        <p>Un code propre n’a d’intérêt que s’il fait avancer le produit.</p>
+      </div>
+      <div class="cards">
+        <article class="tilt" data-reveal>
+          <span class="verb">Découper</span>
+          <h3>Où passent les frontières ?</h3>
+          <p>Microservices, messaging RabbitMQ, contrats clairs entre services. Chaque morceau a une seule bonne raison de changer.</p>
+          <svg viewBox="0 0 280 90" aria-hidden="true"><g fill="none" stroke-width="1.5"><rect x="4" y="30" width="70" height="30" rx="6" stroke="#6b93ff" fill="#11141d"/><rect x="105" y="30" width="70" height="30" rx="15" stroke="#ff9f43" fill="#11141d"/><rect x="206" y="6" width="70" height="30" rx="6" stroke="#6b93ff" fill="#11141d"/><rect x="206" y="54" width="70" height="30" rx="6" stroke="#6b93ff" fill="#11141d"/><path d="M74 45h31M175 45l31-24M175 45l31 24" stroke="#8d93a6" stroke-dasharray="4 4"/></g><g font-family="JetBrains Mono, monospace" font-size="9" fill="#ece8e1" text-anchor="middle"><text x="39" y="48">api</text><text x="140" y="48">rabbitmq</text><text x="241" y="24">catalog</text><text x="241" y="72">billing</text></g></svg>
+        </article>
+        <article class="tilt" data-reveal>
+          <span class="verb">Modéliser</span>
+          <h3>Parler la langue du métier</h3>
+          <p>Un glossaire partagé, des ADR pour garder la trace des décisions, des modules profonds derrière des interfaces simples.</p>
+          <div class="mini" aria-hidden="true"><b>Lien de partage</b> : accès en lecture seule<br>à un document, limité dans le temps.<br><span class="v">→ ADR-014</span> expiration par projet</div>
+        </article>
+        <article class="tilt" data-reveal>
+          <span class="verb">Durer</span>
+          <h3>Un code qui vieillit bien</h3>
+          <p>Je relis les MR de l’équipe pour garder une base cohérente, et j’explique toujours le pourquoi d’une remarque.</p>
+          <div class="mini" aria-hidden="true"><span class="del">- if (u.isAdmin || doc.owner === u.id)</span><br><span class="add">+ policy.assertCanShare(doc, u)</span><br><span class="v">//</span> « On nomme la règle, elle vivra plus longtemps. »</div>
+        </article>
+        <article class="tilt" data-reveal>
+          <span class="verb">Livrer</span>
+          <h3>Du besoin à la solution</h3>
+          <p>UX, métier, organisation : la qualité d’une feature se joue souvent autour du code.</p>
+          <div class="mini" aria-hidden="true">« C’est rapide, non ? »<br><span class="v">→</span> 14 questions <span class="v">→</span> 1 spec <span class="v">→</span> 11 tickets<br><span class="add">→ en prod, et fini les pièces jointes</span></div>
+        </article>
+      </div>
+      <div class="labs">
+        <div class="labs-head">
+          <h3>Mes labos d’architecture</h3>
+          <p>Le même petit domaine, codé en NestJS avec cinq architectures différentes. Le code est public.</p>
+        </div>
+        <div class="repos">
+        <a class="repo" href="https://github.com/Rbourree/NEST-Hexagonal" target="_blank" rel="noopener" data-reveal>
+          <span class="repo-name">NEST-Hexagonal <span aria-hidden="true">↗</span></span>
+          <b>Hexagonale</b>
+          <span class="repo-desc">Ports et adaptateurs : le métier ne sait rien de HTTP ni de la base.</span>
+        </a>
+        <a class="repo" href="https://github.com/Rbourree/NEST-CleanArchitecture" target="_blank" rel="noopener" data-reveal>
+          <span class="repo-name">NEST-CleanArchitecture <span aria-hidden="true">↗</span></span>
+          <b>Clean Architecture</b>
+          <span class="repo-desc">Entités et value objects au centre, cas d’usage autour, adaptateurs en bordure.</span>
+        </a>
+        <a class="repo" href="https://github.com/Rbourree/NEST-DDD" target="_blank" rel="noopener" data-reveal>
+          <span class="repo-name">NEST-DDD <span aria-hidden="true">↗</span></span>
+          <b>Domain-Driven Design</b>
+          <span class="repo-desc">Un domaine pur, séparé des services applicatifs et de l’infrastructure.</span>
+        </a>
+        <a class="repo" href="https://github.com/Rbourree/NEST-CQRS" target="_blank" rel="noopener" data-reveal>
+          <span class="repo-name">NEST-CQRS <span aria-hidden="true">↗</span></span>
+          <b>CQRS</b>
+          <span class="repo-desc">Commandes et requêtes séparées, avec des projections taillées pour la lecture.</span>
+        </a>
+        <a class="repo" href="https://github.com/Rbourree/NEST-Microservice" target="_blank" rel="noopener" data-reveal>
+          <span class="repo-name">NEST-Microservice <span aria-hidden="true">↗</span></span>
+          <b>Microservice</b>
+          <span class="repo-desc">Domaine isolé, base Postgres dédiée, événements RabbitMQ, déployable seul.</span>
+        </a>
+        </div>
+      </div>
+    </div>
+    <div class="marquee" aria-label="Stack technique">
+      <div class="marquee-track">
+        <span>TypeScript</span><span>NestJS</span><span>Angular</span><span>PostgreSQL</span><span>RabbitMQ</span><span>GitLab CI</span><span>Docker</span><span>Claude Code</span><span>React</span><span>Node.js</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSO -->
+  <section class="section perso" id="perso">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Hors du terminal</span>
+        <h2>Le reste du temps</h2>
+      </div>
+      <div class="bento">
+        <div class="tile t-a" data-reveal>
+          <div class="big">Normand, et papa<span>.</span></div>
+          <p><b>Un fils de 20 mois :</b> astreinte 24/7, aucun rollback possible, et pourtant le meilleur projet de ma vie.</p>
+        </div>
+        <div class="tile t-b" data-reveal>
+          <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="kindle" aria-hidden="true"><div class="kindle-track"><i></i></div><span>Kindle · 63 %</span></div>
+          <p><b>Un podcast dans les oreilles, une Kindle dans les mains, et Reddit ouvert dans un onglet :</b> entrepreneuriat, éco, IA, et un peu de philo le dimanche.</p>
+          <div class="pods"><span>GDIY</span><span>Silicon Carne</span><span>Kindle</span><span>Reddit</span></div>
+        </div>
+        <div class="tile t-c" data-reveal>
+          <div class="big">2014</div>
+          <p><b>Mon premier projet de startup, un assistant vocal pour la maison.</b> Il n’a pas survécu, mais l’envie de construire, si.</p>
+        </div>
+        <div class="tile t-e" data-reveal>
+          <div class="big">Au-delà du code</div>
+          <p><b>L’IA me passionne bien au-delà de la technique.</b> Ce qu’elle change dans l’économie et le travail, dans les rapports de force entre pays, à l’école, et les questions éthiques qu’elle soulève. Je creuse ces sujets autant que les nouveaux modèles.</p>
+          <div class="pods"><span>Économie</span><span>Géopolitique</span><span>Éthique</span><span>Philosophie</span><span>Société</span><span>Éducation</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <span class="eyebrow">Contact</span>
+      <h2 data-reveal>On construit<br><span>quoi ensemble ?</span></h2>
+      <p>Je cherche un CDI de développeur fullstack senior, product engineer ou lead dev, en remote ou en hybride autour de Caen. Disponible sous 3 mois maximum.</p>
+      <div class="contact-actions">
+        <button class="mail-big magnetic" type="button" id="mail" aria-describedby="copied">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+          romain.bourree@gmail.com
+        </button>
+        <a class="btn magnetic" href="https://www.linkedin.com/in/romain-bourree/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+        <a class="btn magnetic" href="https://github.com/Rbourree" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+        <a class="btn magnetic" href="https://medium.com/@romain.bourree" target="_blank" rel="noopener">Mes articles sur Medium <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="copied" id="copied" role="status"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>Conçu avec Claude Code par un dev qui n’est pas designer · <a href="https://github.com/Rbourree" target="_blank" rel="noopener">github.com/Rbourree</a></span>
+    <span>Psst : tape <kbd>claude</kbd> au clavier.</span>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+</body>
+</html>
