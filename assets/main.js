@@ -422,7 +422,7 @@
         const t0 = performance.now();
         (function tick(t) {
           const k = Math.min(1, (t - t0) / 1600);
-          el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3)));
+          el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))).toLocaleString("fr-FR");
           if (k < 1) requestAnimationFrame(tick);
         })(t0);
       });

@@ -308,7 +308,7 @@ pre.code {
   mask-image: radial-gradient(320px circle at var(--mx) var(--my), #000, transparent 70%);
 }
 .blueprint .wrap { position: relative; z-index: 1; }
-.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; margin-bottom: clamp(56px, 8vw, 96px); }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; margin-bottom: clamp(56px, 8vw, 96px); }
 @media (max-width: 760px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .stat { background: var(--ink); padding: 22px; display: grid; gap: 4px; }
 .stat b { font-family: var(--display); font-size: clamp(2rem, 1.4rem + 2.4vw, 3.2rem); line-height: 1; font-variant-numeric: tabular-nums; color: var(--paper); }
@@ -391,19 +391,6 @@ pre.code {
 .mini { font-family: var(--mono); font-size: .76rem; line-height: 1.7; background: #07080c; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; max-width: 320px; color: var(--mute); }
 .mini b { color: var(--amber); font-weight: 600; }
 .mini .add { color: var(--green); } .mini .del { color: var(--red); } .mini .v { color: var(--volt); }
-.labs { margin-top: clamp(56px, 8vw, 96px); display: grid; gap: 22px; }
-.labs-head { display: grid; gap: 8px; max-width: 60ch; }
-.labs-head h3 { font-size: var(--step-2); }
-.labs-head p { color: var(--mute); }
-.repos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
-.repo {
-  display: grid; gap: 6px; align-content: start; padding: 18px; border-radius: 14px; text-decoration: none;
-  border: 1px solid var(--line); background: var(--ink-2); transition: border-color .25s, transform .25s; min-width: 0;
-}
-.repo:hover { border-color: var(--volt); transform: translateY(-4px); }
-.repo-name { font-family: var(--mono); font-size: .72rem; color: var(--volt); overflow-wrap: anywhere; }
-.repo b { font-family: var(--display); font-size: 1.15rem; font-weight: 700; }
-.repo-desc { color: var(--mute); font-size: .88rem; line-height: 1.45; }
 .fiction { font-family: var(--mono); font-size: .72rem; color: var(--mute); }
 .marquee { margin-top: clamp(56px, 8vw, 96px); overflow: hidden; border-block: 1px solid var(--line); padding-block: 22px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
 .marquee-track { display: flex; gap: 48px; width: max-content; will-change: transform; }
