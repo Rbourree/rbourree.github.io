@@ -1,6 +1,6 @@
 # rbourree.github.io
 
-Portfolio de Romain Bourree, Fullstack & Product Engineer.
+Portfolio de Romain Bourrée, Fullstack & Product Engineer.
 
 En ligne : https://rbourree.github.io/
 
