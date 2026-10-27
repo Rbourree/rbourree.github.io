@@ -353,7 +353,7 @@ pre.code {
 .career.is-live { height: calc(100svh - 96px); align-content: center; position: sticky; top: 84px; }
 [data-reveal].is-pending { opacity: 0; transform: translateY(40px); }
 [data-reveal].is-revealing { transition: opacity .9s ease, transform .9s cubic-bezier(.2, .8, .2, 1) !important; }
-.career.is-live .stages { position: relative; height: 330px; display: block; }
+.career.is-live .stages { position: relative; height: 370px; display: block; }
 .career.is-live .stage {
   position: absolute; inset: 0; align-content: start; opacity: 0; transform: translateX(40px);
   transition: opacity .45s, transform .55s cubic-bezier(.2, .8, .2, 1); pointer-events: none;

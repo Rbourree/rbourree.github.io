@@ -307,7 +307,7 @@
   specEl.innerHTML = stages.flatMap(s => s.skills).map(k => `<span>${k}</span>`).join("");
   const chips = [...specEl.children];
   const X = y => 50 + (y - Y0) / (Y1 - Y0) * 900;
-  const Y = c => 340 - c / 38 * 310;
+  const Y = c => 340 - c / 40 * 310;
   const mk = (tag, attrs, parent = svg) => {
     const n = document.createElementNS(NS, tag);
     for (const k in attrs) n.setAttribute(k, attrs[k]);
