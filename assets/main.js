@@ -476,6 +476,16 @@
     });
   }
 
+  /* ---------- son's age, kept current from his birth date ---------- */
+  document.querySelectorAll("[data-born]").forEach(el => {
+    const born = new Date(el.dataset.born + "T00:00:00");
+    const now = new Date();
+    let months = (now.getFullYear() - born.getFullYear()) * 12 + now.getMonth() - born.getMonth();
+    if (now.getDate() < born.getDate()) months--;
+    if (months < 0) return;
+    el.textContent = months < 24 ? `${months} mois` : `${Math.floor(months / 12)} ans`;
+  });
+
   /* ---------- kindle progress ---------- */
   const kindle = document.querySelector(".kindle");
   if (motionOK) new IntersectionObserver(([e], obs) => {
