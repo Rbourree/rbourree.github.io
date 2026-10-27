@@ -28,9 +28,9 @@
 <meta name="twitter:title" content="Romain Bourrée · Fullstack &amp; Product Engineer">
 <meta name="twitter:description" content="Romain Bourrée, développeur fullstack TypeScript et product engineer à Caen : architecture logicielle, DDD, TDD, intégration d’agents IA. Ouvert à un CDI.">
 <meta name="twitter:image" content="https://rbourree.github.io/og.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=JetBrains+Mono:wght@400;600&family=Schibsted+Grotesk:wght@400;500;700&display=swap">
+<link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 <meta name="google-site-verification" content="VXBn5VKdehRGE1WE_TCWyteSJITeEtX-NNJnZdUdzl4">
 <meta name="robots" content="index, follow">
 <script type="application/ld+json">
@@ -105,8 +105,8 @@
   }
 }
 </script>
-<link rel="stylesheet" href="assets/styles.css?v=2026102706">
-<script src="assets/main.js?v=2026102706" defer></script>
+<link rel="stylesheet" href="assets/styles.css?v=2026102707">
+<script src="assets/main.js?v=2026102707" defer></script>
 </head>
 <body>
 <div class="cursor" aria-hidden="true"></div>
@@ -192,10 +192,10 @@
             <article class="panel">
               <div class="panel-title"><b>03</b>La spec</div>
               <div class="doc">
-                <h4>Spec · Liens de partage</h4>
-                <div><h5>Problème</h5>Les documents partent en pièce jointe, puis plus personne ne sait quelle version circule.</div>
-                <div><h5>Objectif</h5>Partager un document en lecture seule, en deux clics.</div>
-                <div><h5>Critères d’acceptation</h5>
+                <strong class="doc-title">Spec · Liens de partage</strong>
+                <div><span class="doc-label">Problème</span>Les documents partent en pièce jointe, puis plus personne ne sait quelle version circule.</div>
+                <div><span class="doc-label">Objectif</span>Partager un document en lecture seule, en deux clics.</div>
+                <div><span class="doc-label">Critères d’acceptation</span>
                   <ul><li>Expiration réglable par projet</li><li>Révocable à tout moment</li><li>Chaque ouverture est tracée</li></ul>
                 </div>
               </div>
@@ -204,15 +204,15 @@
             <article class="panel">
               <div class="panel-title"><b>04</b>Les tickets</div>
               <div class="kanban">
-                <div class="col"><h5>À faire</h5>
+                <div class="col"><span class="doc-label">À faire</span>
                   <div class="card">Page publique du lien<small>bloqué par #2</small></div>
                   <div class="card">Expiration planifiée<small>bloqué par #1</small></div>
                 </div>
-                <div class="col"><h5>En cours</h5>
+                <div class="col"><span class="doc-label">En cours</span>
                   <div class="card">API création de lien<small>#2 · bloque #4</small></div>
                   <div class="card">Révocation<small>#3</small></div>
                 </div>
-                <div class="col"><h5>Fait</h5>
+                <div class="col"><span class="doc-label">Fait</span>
                   <div class="card done">Modèle de données<small>#1</small></div>
                 </div>
               </div>
