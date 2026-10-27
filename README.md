@@ -25,6 +25,6 @@ Puis ouvrir http://localhost:8000.
 
 ## Déploiement
 
-GitHub Pages sert la branche `main`, à la racine. Chaque push sur `main` met le site à jour.
+Chaque push sur `main` déclenche le workflow `.github/workflows/pages.yml`, qui publie le site sur GitHub Pages.
 
 L'ancien site (template developerFolio) est archivé dans la branche `archive/developer-folio`.
