@@ -71,6 +71,7 @@ p { margin: 0; }
 .section { padding-block: clamp(80px, 12vw, 160px); position: relative; }
 .section-head { display: grid; gap: 18px; max-width: 760px; margin-bottom: clamp(40px, 6vw, 72px); }
 .section-head h2 { font-size: var(--step-3); }
+.section-head h2 .eyebrow { display: block; margin-bottom: 18px; font-weight: 400; line-height: 1.6; }
 .section-head p { color: var(--mute); font-size: var(--step-1); max-width: 60ch; }
 .hl { color: var(--amber); }
 
