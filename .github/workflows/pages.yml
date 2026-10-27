@@ -29,9 +29,18 @@ jobs:
           sed -i "s#<lastmod>[^<]*</lastmod>#<lastmod>$d</lastmod>#" sitemap.xml
           sed -i "s#\"dateModified\": \"[^\"]*\"#\"dateModified\": \"$dt\"#" index.html
           grep -o "<lastmod>[^<]*</lastmod>" sitemap.xml
+      - name: Version asset URLs with the commit
+        run: |
+          sed -i -E "s#(assets/[a-z]+\.(css|js))\?v=[^\"]+#\1?v=${GITHUB_SHA::8}#g" index.html
+          grep -oE "assets/[a-z]+\.(css|js)\?v=[^\"]+" index.html
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with:
           path: .
       - id: deployment
         uses: actions/deploy-pages@v5
+      - name: Notify search engines (IndexNow)
+        continue-on-error: true
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" "https://api.indexnow.org/indexnow?url=https%3A%2F%2Frbourree.github.io%2F&key=c2aa020a59fd0207e4341ff70f33e86e")
+          echo "IndexNow response: $code"
