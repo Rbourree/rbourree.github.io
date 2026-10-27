@@ -421,7 +421,6 @@
     });
     document.querySelectorAll(".count").forEach(el => {
       const to = +el.dataset.to;
-      el.textContent = "0";
       onceVisible(el, () => {
         const t0 = performance.now();
         (function tick(t) {
