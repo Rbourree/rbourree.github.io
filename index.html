@@ -119,8 +119,8 @@
   "inLanguage": "fr-FR"
 }
 </script>
-<link rel="stylesheet" href="assets/styles.css?v=seo-h2">
-<script src="assets/main.js?v=seo-h2" defer></script>
+<link rel="stylesheet" href="assets/styles.css?v=ui-pass2">
+<script src="assets/main.js?v=ui-pass2" defer></script>
 </head>
 <body>
 <div class="cursor" aria-hidden="true"></div>
@@ -151,7 +151,7 @@
         <span class="row" data-split>Bourrée</span>
       </h1>
       <p class="hero-sub">Développeur fullstack TypeScript et product engineer à Caen. D’un besoin flou à une feature en prod : <em>les agents IA accélèrent</em>, les tests sécurisent.</p>
-      <p class="hero-stack" aria-label="Compétences principales"><span>TypeScript fullstack · 10+ ans</span><span>Architecture logicielle</span><span>Design patterns</span><span>Intégration IA</span><span>Orchestration d’agents IA</span><span>Sécurité</span><span>DDD</span><span>TDD</span></p>
+      <p class="hero-stack" aria-label="Compétences principales"><span>TypeScript fullstack · 10+ ans</span><span>Architecture logicielle</span><span>Design patterns</span><span>Intégration IA</span><span>Orchestration d’agents IA</span><span>Sécurité</span><span>DDD · TDD</span></p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#flow">Voir comment je bosse <span aria-hidden="true">↓</span></a>
         <a class="btn" href="#contact">Me contacter</a>
@@ -277,6 +277,19 @@
         <h2><span class="eyebrow">Développement avec agents IA</span> Je code avec des agents. <span class="hl">Je garde le volant.</span></h2>
         <p>Je délègue la frappe à Claude Code, pas les décisions. Les specs, les tests et la relecture restent de mon côté.</p>
       </div>
+      <div class="ai-product" data-reveal>
+        <div class="ai-head">
+          <span class="eyebrow">Intégration IA</span>
+          <h3>L’IA dans le produit, pas seulement dans mon éditeur</h3>
+          <p>J’ai conçu et mené seul un chatbot que nos clients intègrent via un SDK. Derrière, des agents administrables et versionnés depuis notre backoffice.</p>
+        </div>
+        <ul class="ai-points">
+          <li><b>Agents et prompts versionnés</b> dans Langfuse, pilotés depuis le backoffice.</li>
+          <li><b>Routage des agents</b> via LangChain et LangGraph, avec accès aux bases de connaissances et aux outils MCP.</li>
+          <li><b>Des agents qui comprennent l’app</b> dans laquelle ils tournent, et qui proposent des boutons d’action à l’utilisateur.</li>
+        </ul>
+        <div class="skills"><span>SDK</span><span>Agents</span><span>MCP</span><span>Base de connaissances</span><span>LangChain</span><span>LangGraph</span><span>Langfuse</span></div>
+      </div>
       <div class="wf-grid">
         <div class="term" data-reveal>
           <div class="term-bar"><i></i><i></i><i></i><span>~/projet · session reconstituée pour l’exemple</span></div>
@@ -319,19 +332,6 @@
         </div>
       </div>
       <p class="quote" data-reveal>Les agents vont vite. <span>Le cadre et la vérification, c’est mon boulot.</span></p>
-      <div class="ai-product" data-reveal>
-        <div class="ai-head">
-          <span class="eyebrow">Intégration IA</span>
-          <h3>L’IA dans le produit, pas seulement dans mon éditeur</h3>
-          <p>J’ai conçu et mené seul un chatbot que nos clients intègrent via un SDK. Derrière, des agents administrables et versionnés depuis notre backoffice.</p>
-        </div>
-        <ul class="ai-points">
-          <li><b>Agents et prompts versionnés</b> dans Langfuse, pilotés depuis le backoffice.</li>
-          <li><b>Routage des agents</b> via LangChain et LangGraph, avec accès aux bases de connaissances et aux outils MCP.</li>
-          <li><b>Des agents qui comprennent l’app</b> dans laquelle ils tournent, et qui proposent des boutons d’action à l’utilisateur.</li>
-        </ul>
-        <div class="skills"><span>SDK</span><span>Agents</span><span>MCP</span><span>Base de connaissances</span><span>LangChain</span><span>LangGraph</span><span>Langfuse</span></div>
-      </div>
     </div>
   </section>
 
@@ -421,7 +421,8 @@
         <article class="tilt" data-reveal>
           <span class="verb">Découper</span>
           <h3>Où passent les frontières ?</h3>
-          <p>Microservices, messaging RabbitMQ, contrats clairs entre services. Sur ma plateforme actuelle : une vingtaine de microservices en production, pour près de 100 000 utilisateurs. Découper n’est pas une fin en soi : nous regroupons aujourd’hui le code dans un monorepo Turborepo, pour partager plus et livrer plus vite.</p>
+          <p>Microservices, messaging RabbitMQ, contrats clairs entre services. Mais découper n’est pas une fin en soi : on regroupe aussi quand ça fait gagner.</p>
+          <div class="mini scale" aria-hidden="true"><span class="v">~20</span> microservices en prod · <span class="v">~100 000</span> utilisateurs<br><span class="add">→ migration vers un monorepo Turborepo</span></div>
           <svg viewBox="0 0 280 90" aria-hidden="true"><g fill="none" stroke-width="1.5"><rect x="4" y="30" width="70" height="30" rx="6" stroke="#6b93ff" fill="#11141d"/><rect x="105" y="30" width="70" height="30" rx="15" stroke="#ff9f43" fill="#11141d"/><rect x="206" y="6" width="70" height="30" rx="6" stroke="#6b93ff" fill="#11141d"/><rect x="206" y="54" width="70" height="30" rx="6" stroke="#6b93ff" fill="#11141d"/><path d="M74 45h31M175 45l31-24M175 45l31 24" stroke="#8d93a6" stroke-dasharray="4 4"/></g><g font-family="JetBrains Mono, monospace" font-size="9" fill="#ece8e1" text-anchor="middle"><text x="39" y="48">api</text><text x="140" y="48">rabbitmq</text><text x="241" y="24">catalog</text><text x="241" y="72">billing</text></g></svg>
         </article>
         <article class="tilt" data-reveal>
@@ -492,13 +493,15 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
           romain.bourree@gmail.com
         </a>
-        <button class="btn magnetic" type="button" id="mail" aria-describedby="copied">Copier l’adresse</button>
-        <a class="btn magnetic" href="https://www.linkedin.com/in/romain-bourree/" target="_blank" rel="me noopener">LinkedIn <span aria-hidden="true">↗</span></a>
-        <a class="btn magnetic" href="https://github.com/Rbourree" target="_blank" rel="me noopener">GitHub <span aria-hidden="true">↗</span></a>
-        <a class="btn magnetic" href="https://medium.com/@romain.bourree" target="_blank" rel="me noopener">Mes articles sur Medium <span aria-hidden="true">↗</span></a>
-        <a class="btn magnetic" href="cv-romain-bourree.pdf" download="CV-Romain-Bourree.pdf" rel="nofollow">Télécharger mon CV <span aria-hidden="true">↓</span></a>
+        <a class="btn btn-cv magnetic" href="cv-romain-bourree.pdf" download="CV-Romain-Bourree.pdf" rel="nofollow">Télécharger mon CV <span aria-hidden="true">↓</span></a>
       </div>
+      <button class="copy-link" type="button" id="mail" aria-describedby="copied">Copier l’adresse email</button>
       <div class="copied" id="copied" role="status"></div>
+      <ul class="socials">
+        <li><a href="https://www.linkedin.com/in/romain-bourree/" target="_blank" rel="me noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://github.com/Rbourree" target="_blank" rel="me noopener">GitHub <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://medium.com/@romain.bourree" target="_blank" rel="me noopener">Mes articles sur Medium <span aria-hidden="true">↗</span></a></li>
+      </ul>
     </div>
   </section>
 </main>
