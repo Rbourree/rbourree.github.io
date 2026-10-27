@@ -291,6 +291,19 @@ pre.code {
 .quote { font-family: var(--display); font-size: var(--step-2); line-height: 1.15; margin-top: clamp(48px, 7vw, 88px); max-width: 24ch; }
 .quote span { color: var(--mute); }
 
+.ai-product {
+  margin-top: clamp(48px, 7vw, 88px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 28px 48px; padding: clamp(22px, 3vw, 36px); border: 1px solid rgba(255, 159, 67, .45); border-radius: 22px; background: var(--ink);
+}
+.ai-head { display: grid; gap: 12px; align-content: start; }
+.ai-head h3 { font-size: var(--step-2); }
+.ai-head p { color: var(--mute); }
+.ai-points { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.ai-points li { padding: 14px 16px; border-left: 2px solid var(--amber); background: var(--ink-2); border-radius: 0 10px 10px 0; color: var(--mute); }
+.ai-points b { color: var(--paper); font-weight: 600; }
+.ai-product .skills { grid-column: 1 / -1; }
+@media (max-width: 900px) { .ai-product { grid-template-columns: 1fr; } }
+
 /* ---------- blueprint / timeline ---------- */
 .blueprint { overflow: clip; --mx: 50%; --my: 30%; }
 .blueprint::before, .blueprint::after {
