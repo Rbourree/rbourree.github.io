@@ -25,8 +25,9 @@ jobs:
       - name: Stamp last-modified date
         run: |
           d=$(git log -1 --format=%cs)
+          dt=$(git log -1 --format=%cI)
           sed -i "s#<lastmod>[^<]*</lastmod>#<lastmod>$d</lastmod>#" sitemap.xml
-          sed -i "s#\"dateModified\": \"[^\"]*\"#\"dateModified\": \"$d\"#" index.html
+          sed -i "s#\"dateModified\": \"[^\"]*\"#\"dateModified\": \"$dt\"#" index.html
           grep -o "<lastmod>[^<]*</lastmod>" sitemap.xml
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
