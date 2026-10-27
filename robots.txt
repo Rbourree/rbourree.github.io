@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /cv-romain-bourree.pdf
+Disallow: /README.md
+
+Sitemap: https://rbourree.github.io/sitemap.xml

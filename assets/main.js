@@ -240,7 +240,9 @@
     testsPanel.classList.toggle("run", i >= 4 && panels[4].classList.contains("is-active"));
   }
 
-  if (motionOK && innerWidth >= 960 && innerHeight >= 640) {
+  const wideFlow = matchMedia("(min-width: 960px) and (min-height: 640px)");
+  wideFlow.addEventListener("change", () => location.reload());
+  if (motionOK && wideFlow.matches) {
     const STEPS = panels.length;
     flow.style.setProperty("--steps", STEPS);
     flow.classList.add("is-live");
@@ -379,7 +381,9 @@
     });
   }
 
-  if (motionOK && innerWidth >= 960 && innerHeight >= 680) {
+  const wideCareer = matchMedia("(min-width: 960px) and (min-height: 680px)");
+  wideCareer.addEventListener("change", () => location.reload());
+  if (motionOK && wideCareer.matches) {
     const N = stages.length;
     const track = document.createElement("div");
     track.style.height = `calc(100svh + ${N * 28}svh)`;
@@ -500,7 +504,7 @@
     const done = () => { copied.textContent = "Adresse copiée. À toi de jouer."; };
     const fallback = () => {
       const sel = getSelection(), range = document.createRange();
-      range.selectNodeContents(mail); sel.removeAllRanges(); sel.addRange(range);
+      range.selectNodeContents(document.querySelector(".mail-big")); sel.removeAllRanges(); sel.addRange(range);
       copied.textContent = "Adresse sélectionnée, il ne reste qu’à copier.";
     };
     try {

@@ -163,6 +163,7 @@ p { margin: 0; }
 /* ---------- flow (request → product) ---------- */
 .flow { background: var(--ink); }
 .flow-grid { display: grid; gap: 28px; }
+.flow-grid > *, .career-top > * { min-width: 0; }
 .flow-steps { display: none; }
 .flow-stage { display: grid; gap: 28px; }
 .panel {
@@ -451,4 +452,23 @@ footer { border-top: 1px solid var(--line); padding-block: 28px calc(28px + env(
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* ---------- small screens ---------- */
+.mail-big { text-decoration: none; }
+.swipe-hint { display: none; font-family: var(--mono); font-size: .72rem; color: var(--mute); margin: 0 0 10px; }
+@media (max-width: 959px) {
+  .flow:not(.is-live) .swipe-hint, .career:not(.is-live) + .swipe-hint, .career:not(.is-live) .swipe-hint { display: block; }
+  .flow:not(.is-live) .flow-stage, .career:not(.is-live) .stages {
+    display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding-bottom: 12px; overscroll-behavior-x: contain; scrollbar-width: thin;
+  }
+  .flow:not(.is-live) .panel { flex: 0 0 88%; scroll-snap-align: start; align-content: start; }
+  .career:not(.is-live) .stage { flex: 0 0 80%; scroll-snap-align: start; }
+}
+@media (max-width: 760px) {
+  #swarm { opacity: .35; }
+  .hero-stack span { font-size: .7rem; padding: 5px 9px; }
+  .term-body { min-height: 0; }
+  .tl { white-space: pre-wrap; overflow-wrap: anywhere; }
 }
