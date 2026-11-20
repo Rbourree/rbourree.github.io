@@ -1,0 +1,57 @@
+name: Grant repo read access
+
+# Adding the "approved" label to an access request (only repo maintainers can label)
+# invites the requester as a read-only outside collaborator on the chosen Myriolab repo.
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  issues: write
+
+jobs:
+  grant:
+    if: github.event.label.name == 'approved' && contains(github.event.issue.labels.*.name, 'access-request')
+    runs-on: ubuntu-24.04
+    env:
+      ORG: Myriolab
+      ALLOWED_REPOS: "Citadelle Novara Cocon Rotwood-Valley"
+      ISSUE: ${{ github.event.issue.number }}
+      BODY: ${{ github.event.issue.body }}
+    steps:
+      - name: Parse request
+        id: parse
+        run: |
+          field() { printf '%s\n' "$BODY" | awk -v h="### $1" '$0==h{f=1;next} /^### /{f=0} f&&NF{print;exit}' | tr -d '\r' | xargs; }
+          repo=$(field "Projet")
+          user=$(field "Pseudo GitHub"); user=${user#@}
+          echo "repo=$repo user=$user"
+          [[ " $ALLOWED_REPOS " == *" $repo "* ]] || { echo "::error::Repo not allowed: $repo"; exit 1; }
+          [[ "$user" =~ ^[A-Za-z0-9]([A-Za-z0-9-]{0,37}[A-Za-z0-9])?$ ]] || { echo "::error::Invalid username: $user"; exit 1; }
+          echo "repo=$repo" >> "$GITHUB_OUTPUT"
+          echo "user=$user" >> "$GITHUB_OUTPUT"
+
+      - name: Invite as read-only collaborator
+        env:
+          GH_TOKEN: ${{ secrets.MYRIOLAB_ACCESS_TOKEN }}
+          REPO: ${{ steps.parse.outputs.repo }}
+          USER_LOGIN: ${{ steps.parse.outputs.user }}
+        run: gh api -X PUT "repos/$ORG/$REPO/collaborators/$USER_LOGIN" -f permission=pull --silent
+
+      - name: Notify and close
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          REPO: ${{ steps.parse.outputs.repo }}
+          USER_LOGIN: ${{ steps.parse.outputs.user }}
+        run: |
+          gh issue comment "$ISSUE" --body "Accès accordé : @$USER_LOGIN, une invitation en lecture seule sur **$ORG/$REPO** vous a été envoyée (https://github.com/$ORG/$REPO/invitations). Elle expire dans 30 jours. Bonne lecture !"
+          gh issue edit "$ISSUE" --add-label access-granted --remove-label approved
+          gh issue close "$ISSUE" --reason completed
+
+      - name: Report failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh issue comment "$ISSUE" --body "L'invitation automatique a échoué (projet ou pseudo invalide ?). Je regarde ça manuellement."

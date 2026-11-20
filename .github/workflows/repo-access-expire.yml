@@ -1,0 +1,43 @@
+name: Expire repo read access
+
+# Daily: revoke read access (collaborator or pending invitation) 30 days after it was granted.
+on:
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  expire:
+    runs-on: ubuntu-24.04
+    env:
+      ORG: Myriolab
+      TTL_DAYS: 30
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Revoke expired grants
+        env:
+          ADMIN_TOKEN: ${{ secrets.MYRIOLAB_ACCESS_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cutoff=$(date -u -d "-$TTL_DAYS days" +%s)
+          gh issue list --label access-granted --state closed --limit 200 --json number,closedAt,body \
+            | jq -c '.[]' | while read -r issue; do
+              n=$(jq -r .number <<<"$issue")
+              closed=$(date -u -d "$(jq -r .closedAt <<<"$issue")" +%s)
+              (( closed < cutoff )) || continue
+              body=$(jq -r .body <<<"$issue")
+              field() { printf '%s\n' "$body" | awk -v h="### $1" '$0==h{f=1;next} /^### /{f=0} f&&NF{print;exit}' | tr -d '\r' | xargs; }
+              repo=$(field "Projet"); user=$(field "Pseudo GitHub"); user=${user#@}
+              echo "Revoking $user on $ORG/$repo (issue #$n)"
+              # Accepted invitation -> collaborator; pending one -> invitation.
+              GH_TOKEN=$ADMIN_TOKEN gh api -X DELETE "repos/$ORG/$repo/collaborators/$user" --silent || true
+              for id in $(GH_TOKEN=$ADMIN_TOKEN gh api "repos/$ORG/$repo/invitations" --paginate \
+                  --jq ".[] | select((.invitee.login|ascii_downcase) == (\"$user\"|ascii_downcase)) | .id"); do
+                GH_TOKEN=$ADMIN_TOKEN gh api -X DELETE "repos/$ORG/$repo/invitations/$id" --silent
+              done
+              gh issue edit "$n" --remove-label access-granted --add-label access-expired
+              gh issue comment "$n" --body "Accès en lecture à **$ORG/$repo** expiré après $TTL_DAYS jours. Une nouvelle demande reste possible depuis le portfolio."
+            done

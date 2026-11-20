@@ -1,0 +1,34 @@
+name: Demande d'accès en lecture
+description: Demander un accès en lecture seule (30 jours) à l'un de mes projets privés Myriolab.
+title: "Accès en lecture : "
+labels: ["access-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de votre intérêt ! Une fois la demande validée, une invitation GitHub en lecture seule vous est envoyée automatiquement. Elle expire au bout de 30 jours.
+        Cette issue est publique : votre pseudo GitHub y est visible.
+  - type: dropdown
+    id: repo
+    attributes:
+      label: Projet
+      options:
+        - Citadelle
+        - Novara
+        - Cocon
+        - Rotwood-Valley
+    validations:
+      required: true
+  - type: input
+    id: username
+    attributes:
+      label: Pseudo GitHub
+      description: Le compte qui recevra l'invitation (sans @).
+      placeholder: octocat
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexte (optionnel)
+      description: Entreprise, recrutement, curiosité… ce qui vous amène.
