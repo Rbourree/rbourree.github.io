@@ -489,6 +489,61 @@
     el.textContent = months < 24 ? `${months} mois` : `${Math.floor(months / 12)} ans`;
   });
 
+  /* ---------- podcast strip: auto-scroll, visitor can take over ---------- */
+  const casts = document.querySelector(".casts");
+  if (casts) {
+    const track = casts.querySelector(".casts-track");
+    // The track holds two identical halves separated by one 14px gap: one loop = half the track + that gap.
+    const loopWidth = () => (track.scrollWidth + 14) / 2;
+    let pos = 0, hovering = false, resumeAt = 0, drag = null;
+    const hold = (ms = 3000) => { resumeAt = performance.now() + ms; };
+
+    if (motionOK) {
+      casts.addEventListener("scroll", () => {
+        const w = loopWidth();
+        if (casts.scrollLeft >= w) casts.scrollLeft -= w;
+        else if (casts.scrollLeft <= 0 && performance.now() < resumeAt) casts.scrollLeft += w;
+      }, { passive: true });
+      const step = now => {
+        if (!hovering && !drag && now > resumeAt) {
+          pos += 0.35;
+          if (pos >= loopWidth()) pos -= loopWidth();
+          casts.scrollLeft = pos;
+        } else {
+          pos = casts.scrollLeft;
+        }
+        requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+
+    casts.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") hovering = true; });
+    casts.addEventListener("pointerleave", () => { hovering = false; hold(800); });
+    casts.addEventListener("wheel", () => hold(), { passive: true });
+    casts.addEventListener("touchstart", () => hold(4000), { passive: true });
+    casts.addEventListener("focusin", () => { hovering = true; });
+    casts.addEventListener("focusout", () => { hovering = false; hold(); });
+    casts.addEventListener("dragstart", e => e.preventDefault());
+
+    // Mouse drag to scroll (touch and trackpads scroll natively).
+    casts.addEventListener("pointerdown", e => {
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      drag = { x: e.clientX, left: casts.scrollLeft, moved: false };
+    });
+    addEventListener("pointermove", e => {
+      if (!drag) return;
+      const dx = e.clientX - drag.x;
+      if (!drag.moved && Math.abs(dx) > 4) { drag.moved = true; casts.classList.add("is-dragging"); }
+      if (drag.moved) casts.scrollLeft = drag.left - dx;
+    });
+    addEventListener("pointerup", () => {
+      if (!drag) return;
+      drag = null;
+      casts.classList.remove("is-dragging");
+      hold();
+    });
+  }
+
   /* ---------- copy email ---------- */
   const mail = document.getElementById("mail");
   const copied = document.getElementById("copied");

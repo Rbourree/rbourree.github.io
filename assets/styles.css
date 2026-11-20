@@ -555,9 +555,13 @@ footer { border-top: 1px solid var(--line); padding-block: 28px calc(28px + env(
 .fiche-desc { color: var(--mute); max-width: 72ch; }
 .proj-note { margin-top: 24px; font-family: var(--mono); font-size: .75rem; color: var(--mute); max-width: 80ch; }
 
-/* Podcasts: auto-scrolling strip of official covers (two identical halves loop at -50%) */
-.casts { overflow: hidden; margin-inline: -24px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
-.casts-track { display: flex; align-items: start; gap: 14px; width: max-content; animation: casts 40s linear infinite; }
+/* Podcasts: horizontally scrollable strip of official covers. main.js auto-scrolls it and loops over two identical halves; any wheel, touch, drag or hover hands control to the visitor. */
+.casts { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; margin-inline: -24px; padding-inline: 24px; cursor: grab; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.casts::-webkit-scrollbar { display: none; }
+.casts.is-dragging { cursor: grabbing; }
+.casts.is-dragging a { pointer-events: none; }
+.casts-track { display: flex; align-items: start; gap: 14px; width: max-content; user-select: none; -webkit-user-select: none; }
+.casts-track a, .casts-track img { -webkit-user-drag: none; }
 .cast { flex: none; width: 92px; display: grid; justify-items: center; gap: 4px; text-align: center; }
 .cast-cover { display: block; width: 76px; height: 76px; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 4px; transition: transform .25s, border-color .25s; }
 .cast-cover:hover { transform: translateY(-3px) scale(1.04); border-color: var(--amber); }
@@ -565,10 +569,6 @@ footer { border-top: 1px solid var(--line); padding-block: 28px calc(28px + env(
 .cast-name { font-size: .78rem; font-weight: 500; line-height: 1.2; color: var(--paper); }
 .cast-link { font-family: var(--mono); font-size: .66rem; color: var(--green); text-decoration: none; }
 .cast-link:hover { text-decoration: underline; text-underline-offset: 3px; }
-.casts:hover .casts-track, .casts:focus-within .casts-track { animation-play-state: paused; }
-@keyframes casts { to { transform: translateX(calc(-50% - 7px)); } }
 @media (prefers-reduced-motion: reduce) {
-  .casts { margin-inline: 0; -webkit-mask-image: none; mask-image: none; }
-  .casts-track { animation: none; flex-wrap: wrap; width: auto; }
   .casts-track > .cast[aria-hidden] { display: none; }
 }
