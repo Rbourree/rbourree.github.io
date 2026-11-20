@@ -445,11 +445,6 @@ pre.code {
 .wave { display: flex; align-items: center; gap: 3px; height: 40px; }
 .wave i { width: 4px; border-radius: 2px; background: var(--volt); height: 30%; animation: wave 1.1s ease-in-out infinite; }
 @keyframes wave { 50% { height: 100%; } }
-.kindle { display: grid; gap: 6px; font-family: var(--mono); font-size: .7rem; color: var(--mute); }
-.kindle-track { height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; }
-.kindle-track i { display: block; height: 100%; width: 63%; background: var(--paper); border-radius: 2px; }
-.kindle.is-in .kindle-track i { animation: read 2.2s cubic-bezier(.2, .8, .2, 1) both; }
-@keyframes read { from { width: 0; } }
 .t-e { align-content: start; }
 .t-e .big { color: var(--amber); }
 .t-e p { max-width: 70ch; }
@@ -562,14 +557,18 @@ footer { border-top: 1px solid var(--line); padding-block: 28px calc(28px + env(
 
 /* Podcasts: auto-scrolling strip of official covers (two identical halves loop at -50%) */
 .casts { overflow: hidden; margin-inline: -24px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
-.casts-track { display: flex; gap: 14px; width: max-content; animation: casts 40s linear infinite; }
-.casts-track > a { flex: none; display: block; width: 76px; height: 76px; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); transition: transform .25s, border-color .25s; }
-.casts-track > a:hover { transform: translateY(-3px) scale(1.04); border-color: var(--amber); }
-.casts-track img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.casts-track { display: flex; align-items: start; gap: 14px; width: max-content; animation: casts 40s linear infinite; }
+.cast { flex: none; width: 92px; display: grid; justify-items: center; gap: 4px; text-align: center; }
+.cast-cover { display: block; width: 76px; height: 76px; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 4px; transition: transform .25s, border-color .25s; }
+.cast-cover:hover { transform: translateY(-3px) scale(1.04); border-color: var(--amber); }
+.cast-cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.cast-name { font-size: .78rem; font-weight: 500; line-height: 1.2; color: var(--paper); }
+.cast-link { font-family: var(--mono); font-size: .66rem; color: var(--green); text-decoration: none; }
+.cast-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 .casts:hover .casts-track, .casts:focus-within .casts-track { animation-play-state: paused; }
 @keyframes casts { to { transform: translateX(calc(-50% - 7px)); } }
 @media (prefers-reduced-motion: reduce) {
   .casts { margin-inline: 0; -webkit-mask-image: none; mask-image: none; }
   .casts-track { animation: none; flex-wrap: wrap; width: auto; }
-  .casts-track > a[aria-hidden] { display: none; }
+  .casts-track > .cast[aria-hidden] { display: none; }
 }

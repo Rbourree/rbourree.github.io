@@ -489,12 +489,6 @@
     el.textContent = months < 24 ? `${months} mois` : `${Math.floor(months / 12)} ans`;
   });
 
-  /* ---------- kindle progress ---------- */
-  const kindle = document.querySelector(".kindle");
-  if (motionOK) new IntersectionObserver(([e], obs) => {
-    if (e.isIntersecting) { kindle.classList.add("is-in"); obs.disconnect(); }
-  }, { threshold: .8 }).observe(kindle);
-
   /* ---------- copy email ---------- */
   const mail = document.getElementById("mail");
   const copied = document.getElementById("copied");

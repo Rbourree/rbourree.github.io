@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       ORG: Myriolab
-      ALLOWED_REPOS: "Citadelle Novara Cocon Rotwood-Valley"
+      ALLOWED_REPOS: "Citadelle Novara Cocon"
       ISSUE: ${{ github.event.issue.number }}
       BODY: ${{ github.event.issue.body }}
     steps:
