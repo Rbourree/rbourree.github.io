@@ -527,6 +527,9 @@ footer { border-top: 1px solid var(--line); padding-block: 28px calc(28px + env(
 /* Projects: private Myriolab repos with a read-access request */
 .project { align-content: start; }
 .project .pods { margin-top: 4px; }
-.proj-cta { justify-self: start; margin-top: 8px; font-family: var(--mono); font-size: .8rem; color: var(--amber); text-decoration: none; border: 1px solid rgba(255, 159, 67, .4); border-radius: 999px; padding: 9px 16px; transition: background .2s, color .2s; }
+.proj-links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 8px; }
+.proj-cta { font-family: var(--mono); font-size: .8rem; color: var(--amber); text-decoration: none; border: 1px solid rgba(255, 159, 67, .4); border-radius: 999px; padding: 9px 16px; transition: background .2s, color .2s; }
 .proj-cta:hover { background: var(--amber); color: var(--ink); }
 .proj-note { margin-top: 24px; font-family: var(--mono); font-size: .75rem; color: var(--mute); max-width: 80ch; }
+.proj-site { font-family: var(--mono); font-size: .8rem; color: var(--paper); text-underline-offset: 4px; }
+.proj-site:hover { color: var(--amber); }
