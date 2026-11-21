@@ -489,60 +489,80 @@
     el.textContent = months < 24 ? `${months} mois` : `${Math.floor(months / 12)} ans`;
   });
 
-  /* ---------- podcast strip: auto-scroll, visitor can take over ---------- */
-  const casts = document.querySelector(".casts");
-  if (casts) {
-    const track = casts.querySelector(".casts-track");
-    // The track holds two identical halves separated by one 14px gap: one loop = half the track + that gap.
-    const loopWidth = () => (track.scrollWidth + 14) / 2;
-    let pos = 0, hovering = false, resumeAt = 0, drag = null;
+  /* ---------- auto-scrolling strips (podcasts, project screenshots) ----------
+     Scrolls slowly while the strip is on screen. Hover, wheel, touch, keyboard focus
+     or a mouse drag hands control to the visitor; auto-scroll resumes a few seconds later.
+     loopWidth: seamless loop over duplicated content; otherwise it bounces between both ends. */
+  const autoScroll = (el, { speed = 0.3, loopWidth = null } = {}) => {
+    let pos = el.scrollLeft, dir = 1, hovering = false, visible = false, resumeAt = 0, drag = null;
     const hold = (ms = 3000) => { resumeAt = performance.now() + ms; };
+    const auto = on => el.classList.toggle("is-autoscrolling", on);
 
     if (motionOK) {
-      casts.addEventListener("scroll", () => {
-        const w = loopWidth();
-        if (casts.scrollLeft >= w) casts.scrollLeft -= w;
-        else if (casts.scrollLeft <= 0 && performance.now() < resumeAt) casts.scrollLeft += w;
-      }, { passive: true });
+      new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: .35 }).observe(el);
+      if (loopWidth) {
+        el.addEventListener("scroll", () => {
+          const w = loopWidth();
+          if (el.scrollLeft >= w) el.scrollLeft -= w;
+          else if (el.scrollLeft <= 0 && performance.now() < resumeAt) el.scrollLeft += w;
+        }, { passive: true });
+      }
       const step = now => {
-        if (!hovering && !drag && now > resumeAt) {
-          pos += 0.35;
-          if (pos >= loopWidth()) pos -= loopWidth();
-          casts.scrollLeft = pos;
+        const max = el.scrollWidth - el.clientWidth;
+        if (visible && max > 2 && !hovering && !drag && now > resumeAt) {
+          auto(true);
+          pos += speed * dir;
+          if (loopWidth) {
+            if (pos >= loopWidth()) pos -= loopWidth();
+          } else if (pos >= max || pos <= 0) {
+            pos = Math.min(Math.max(pos, 0), max);
+            dir = -dir;
+            hold(1800);
+          }
+          el.scrollLeft = pos;
         } else {
-          pos = casts.scrollLeft;
+          if (now <= resumeAt || hovering || drag) auto(false);
+          pos = el.scrollLeft;
         }
         requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
     }
 
-    casts.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") hovering = true; });
-    casts.addEventListener("pointerleave", () => { hovering = false; hold(800); });
-    casts.addEventListener("wheel", () => hold(), { passive: true });
-    casts.addEventListener("touchstart", () => hold(4000), { passive: true });
-    casts.addEventListener("focusin", () => { hovering = true; });
-    casts.addEventListener("focusout", () => { hovering = false; hold(); });
-    casts.addEventListener("dragstart", e => e.preventDefault());
+    el.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") hovering = true; });
+    el.addEventListener("pointerleave", () => { hovering = false; hold(800); });
+    el.addEventListener("wheel", () => hold(), { passive: true });
+    el.addEventListener("touchstart", () => hold(4000), { passive: true });
+    el.addEventListener("focusin", () => { hovering = true; });
+    el.addEventListener("focusout", () => { hovering = false; hold(); });
+    el.addEventListener("dragstart", e => e.preventDefault());
 
     // Mouse drag to scroll (touch and trackpads scroll natively).
-    casts.addEventListener("pointerdown", e => {
+    el.addEventListener("pointerdown", e => {
       if (e.pointerType !== "mouse" || e.button !== 0) return;
-      drag = { x: e.clientX, left: casts.scrollLeft, moved: false };
+      drag = { x: e.clientX, left: el.scrollLeft, moved: false };
     });
     addEventListener("pointermove", e => {
       if (!drag) return;
       const dx = e.clientX - drag.x;
-      if (!drag.moved && Math.abs(dx) > 4) { drag.moved = true; casts.classList.add("is-dragging"); }
-      if (drag.moved) casts.scrollLeft = drag.left - dx;
+      if (!drag.moved && Math.abs(dx) > 4) { drag.moved = true; el.classList.add("is-dragging"); }
+      if (drag.moved) el.scrollLeft = drag.left - dx;
     });
     addEventListener("pointerup", () => {
       if (!drag) return;
       drag = null;
-      casts.classList.remove("is-dragging");
+      el.classList.remove("is-dragging");
       hold();
     });
+  };
+
+  const casts = document.querySelector(".casts");
+  if (casts) {
+    const track = casts.querySelector(".casts-track");
+    // The track holds two identical halves separated by one 14px gap: one loop = half the track + that gap.
+    autoScroll(casts, { speed: 0.35, loopWidth: () => (track.scrollWidth + 14) / 2 });
   }
+  document.querySelectorAll(".fiche-shots").forEach(el => autoScroll(el, { speed: 0.3 }));
 
   /* ---------- copy email ---------- */
   const mail = document.getElementById("mail");
