@@ -16,6 +16,7 @@ body:
         - Citadelle
         - Novara
         - Cocon
+        - Rotwood-Valley
     validations:
       required: true
   - type: input

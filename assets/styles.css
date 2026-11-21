@@ -552,6 +552,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px calc(28px + env(
 .fiche-shots img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .fiche-shots.is-port figure { width: clamp(150px, 22vw, 210px); aspect-ratio: 420 / 913; border-radius: 22px; }
 .fiche-shots.is-land figure { width: clamp(260px, 46vw, 520px); aspect-ratio: 16 / 9; }
+.fiche-shots.is-wide figure { width: clamp(280px, 52vw, 580px); aspect-ratio: 1920 / 935; }
 .fiche-desc { color: var(--mute); max-width: 72ch; }
 .proj-note { margin-top: 24px; font-family: var(--mono); font-size: .75rem; color: var(--mute); max-width: 80ch; }
 
