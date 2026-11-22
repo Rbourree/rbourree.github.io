@@ -552,6 +552,10 @@ footer { border-top: 1px solid var(--line); padding-block: 28px calc(28px + env(
 .store img { height: 32px; width: auto; }
 a.store { transition: transform .15s ease, opacity .15s ease; }
 a.store:hover { transform: translateY(-1px); opacity: .9; }
+.dl-btn { display: inline-flex; align-items: center; gap: 7px; height: 32px; padding: 0 10px; border: 1px solid #a6a6a6; border-radius: 7px; background: #000; color: #fff; text-decoration: none; text-align: left; transition: transform .15s ease, opacity .15s ease; }
+.dl-btn:hover { transform: translateY(-1px); opacity: .9; color: #fff; }
+.dl-btn span { display: flex; flex-direction: column; font-size: .8rem; font-weight: 600; line-height: 1.05; }
+.dl-btn small { font-size: .5rem; font-weight: 400; letter-spacing: .02em; }
 .store.is-soon img { opacity: .45; filter: grayscale(1); }
 .store-soon { position: absolute; top: -7px; right: -6px; padding: 3px 6px; border-radius: 999px; background: var(--amber); color: var(--ink); font-family: var(--mono); font-size: .58rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; line-height: 1; }
 .store-soon.is-row { position: static; flex-basis: 100%; width: max-content; max-width: max-content; margin: 0 auto; }
